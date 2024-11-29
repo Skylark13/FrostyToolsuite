@@ -975,16 +975,7 @@
                                                     </GridViewColumn>
                                                     <GridViewColumn Header="Applied"
                                                                     Width="74">
-                                                        <!--<GridViewColumn.CellTemplate>
-                                                            <DataTemplate>
-                                                                <Grid Height="32">
-                                                                    <TextBlock Text=""
-                                                                               MinWidth="75"
-                                                                               VerticalAlignment="Top"
-                                                                               Margin="0,4,0,0" />
-                                                                </Grid>
-                                                            </DataTemplate>
-                                                        </GridViewColumn.CellTemplate>-->
+                                                        <!-- GridViewColumn.CellTemplate created in code -->
                                                     </GridViewColumn>
                                                 </GridView.Columns>
                                             </GridView>

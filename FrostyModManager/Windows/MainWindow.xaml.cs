@@ -517,20 +517,6 @@ namespace FrostyModManager
                 orderComboBox.SelectedIndex = 1;
             }
 
-            GridViewColumn appliedBindingColumn = (availableModsList.View as GridView).Columns[2];
-            //DependencyObject appliedBindingColumnContent = appliedBindingColumn.CellTemplate.LoadContent();
-            //DependencyObject appliedBindingColumnTextBlock = VisualTreeHelper.GetChild(appliedBindingColumnContent, 0);
-            //BindingOperations.SetBinding(appliedBindingColumnTextBlock, TextBlock.TextProperty, 
-            //    new Binding("ModDetails.Title")
-            //    {
-            //        Converter = new ModAppliedConverter(), 
-            //        ConverterParameter = this,
-            //        Source = view,
-            //        Mode = BindingMode.OneWay,
-            //    });
-            //DependencyObject otherColumnContent = (availableModsList.View as GridView).Columns[1].CellTemplate.LoadContent();
-            //Binding otherColumnBinding = BindingOperations.GetBinding(VisualTreeHelper.GetChild(otherColumnContent, 0), TextBlock.TextProperty);
-
             FrameworkElementFactory factory = new FrameworkElementFactory(typeof(Image));
             factory.SetValue(Image.SourceProperty, new ImageSourceConverter().ConvertFromString("pack://application:,,,/FrostyModManager;component/Images/CircleCheck.png") as ImageSource);
             factory.SetValue(Image.HeightProperty, 16.0d);
@@ -541,13 +527,12 @@ namespace FrostyModManager
             {
                 Converter = new ModAppliedConverter(),
                 ConverterParameter = this,
-                //Source = availableModsList.ItemsSource,
                 Mode = BindingMode.OneWay,
             });
             DataTemplate dt = new DataTemplate();
             dt.VisualTree = factory;
+            GridViewColumn appliedBindingColumn = (availableModsList.View as GridView).Columns[2];
             appliedBindingColumn.CellTemplate = dt;
-            view.Refresh();
 
             GC.Collect();
         }
